@@ -26,3 +26,23 @@ def hottest(devices):
     return max(devices, key=lambda device: device['temp'])
 
 print(f"Hottest Device: {hottest(readings)['name']}, Temperature: {hottest(readings)['temp']}°C")
+
+#write a function called to_status(device) — take one device, return a new dictionary
+
+def to_status(device):
+    # Determine status string based on the boolean online field
+    if device["online"]:
+        status_str = "ok"
+    else:
+        status_str = "offline"
+
+    # Return the new dictionary structure
+    return {
+        "device": device["name"],
+        "status": status_str,
+        "celsius": device["temp"],
+    }
+
+# Testing Task 4 with the fridge 
+print(to_status(readings[3]))
+
