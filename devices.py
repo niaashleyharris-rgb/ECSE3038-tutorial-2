@@ -44,5 +44,16 @@ def to_status(device):
     }
 
 # Testing Task 4 with the fridge 
-print(to_status(readings[3]))
+print(f"Status readings for fridge: {to_status(readings[3])}")
 
+#write a function Stretch. by_room(devices) — return a dictionary of room names to lists of device names
+def by_room(devices):
+    room_dict = {}
+    for device in devices:
+        room = device["room"]
+        if room not in room_dict:
+            room_dict[room] = []
+        room_dict[room].append(device["name"])
+    return room_dict
+
+print(f"Devices by room:{by_room(readings)}")
